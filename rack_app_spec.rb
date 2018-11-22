@@ -1,4 +1,4 @@
-require './puma_rack_app'
+require './rack_app'
 
 describe PumaRackApp do
   context "get /" do
