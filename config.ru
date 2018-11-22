@@ -23,7 +23,7 @@ Thread.new do
       begin
         c << "BEEP\n"
       rescue
-      	puts "rescue"
+        puts "rescue"
         conn_storage.delete(c)
       end
     end
