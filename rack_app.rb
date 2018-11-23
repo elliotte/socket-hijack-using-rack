@@ -1,5 +1,25 @@
 class PumaRackApp
   def call(env)
-    ['200', {'Content-Type' => 'text/html'}, ['Nerd, World!']]
+    # ['200', {'Content-Type' => 'text/html'}, ['Nerd, World!']]
+     handle_request(env["REQUEST_METHOD"], env["PATH_INFO"])
   end
+
+  private
+
+    def handle_request(method, path)
+      if method == "GET"
+        get(path)
+      else
+        method_not_allowed(method)
+      end
+    end
+
+    def get(path)
+      [200, { "Content-Type" => "text/html" }, ["Nerd World! #{path}, using GET"]]
+    end
+
+    def method_not_allowed(method)
+      [405, {}, ["Method not allowed: #{method}"]]
+    end
+
 end
