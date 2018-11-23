@@ -9,9 +9,7 @@ end
 require 'rack/handler/puma'
 require './rack_app.rb'
 
-
 Rack::Handler::Puma.run(PumaRackApp.new, Port: 3000)
-
 
 
 ## OLD ATTEMPTS
